@@ -1,52 +1,579 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Website</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #111827;
-            color: white;
-            text-align: center;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohamed Amine Football Academy</title>
 
-        .container {
-            padding: 100px 20px;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-        h1 {
-            font-size: 42px;
-            color: #38bdf8;
-        }
+<style>
+:root {
+  --black: #090b0a;
+  --dark: #111612;
+  --gold: #d8b65d;
+  --green: #1c8b55;
+  --white: #ffffff;
+  --gray: #a6aaa6;
+}
 
-        p {
-            font-size: 18px;
-            color: #d1d5db;
-        }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-        button {
-            background: #38bdf8;
-            color: #111827;
-            padding: 14px 28px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-    </style>
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Cairo', sans-serif;
+  background: var(--black);
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header {
+  height: 85px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 7%;
+  background: rgba(9,11,10,.96);
+  border-bottom: 1px solid #292d29;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 19px;
+  font-weight: 900;
+  color: var(--gold);
+}
+
+.logo span {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: white;
+}
+
+nav {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+nav a {
+  font-size: 13px;
+  color: #ddd;
+  transition: .3s;
+}
+
+nav a:hover { color: var(--gold); }
+
+.join-btn {
+  background: var(--gold);
+  color: #111;
+  padding: 11px 23px;
+  border-radius: 4px;
+  font-weight: 800;
+}
+
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 650px;
+  display: flex;
+  align-items: center;
+  padding: 80px 9%;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.94), rgba(0,0,0,.53)),
+    url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1800') center/cover;
+}
+
+.hero-content { max-width: 680px; }
+
+.tag {
+  color: var(--gold);
+  font-size: 13px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: clamp(36px, 6vw, 67px);
+  line-height: 1.4;
+  font-weight: 900;
+}
+
+.hero h1 span { color: var(--gold); }
+
+.hero p {
+  color: #ddd;
+  font-size: 16px;
+  line-height: 2;
+  margin: 20px 0 30px;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 14px 28px;
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  font-weight: 700;
+  transition: .3s;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: #111;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+}
+
+/* STATS */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  background: #151a16;
+  padding: 35px 8%;
+  text-align: center;
+  border-bottom: 1px solid #30362f;
+}
+
+.stat h2 {
+  font-size: 35px;
+  color: var(--gold);
+}
+
+.stat p { color: var(--gray); font-size: 13px; }
+
+/* SECTIONS */
+
+section { padding: 90px 8%; }
+
+.section-title {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.section-title small {
+  color: var(--gold);
+  letter-spacing: 2px;
+}
+
+.section-title h2 {
+  font-size: 34px;
+  margin: 12px 0;
+}
+
+.section-title p {
+  color: var(--gray);
+  font-size: 14px;
+}
+
+/* ABOUT */
+
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  align-items: center;
+}
+
+.about-img img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.about-text h2 {
+  font-size: 35px;
+  margin-bottom: 20px;
+}
+
+.about-text h2 span { color: var(--gold); }
+
+.about-text p {
+  color: #b9bdb9;
+  line-height: 2.2;
+  font-size: 14px;
+}
+
+/* PROGRAMS */
+
+.programs { background: #111612; }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 23px;
+}
+
+.card {
+  background: #1b211c;
+  border: 1px solid #303830;
+  padding: 30px;
+  border-radius: 7px;
+  transition: .3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: var(--gold);
+}
+
+.card-icon {
+  font-size: 38px;
+  margin-bottom: 18px;
+}
+
+.card h3 {
+  color: var(--gold);
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+
+.card p {
+  color: #b8beb8;
+  font-size: 13px;
+  line-height: 2;
+}
+
+/* VALUES */
+
+.values {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+}
+
+.value {
+  text-align: center;
+  padding: 25px;
+  border-bottom: 2px solid var(--gold);
+  background: #141914;
+}
+
+.value h3 { margin: 12px 0; }
+
+.value p {
+  color: var(--gray);
+  font-size: 13px;
+  line-height: 2;
+}
+
+/* JOIN */
+
+.join {
+  text-align: center;
+  background:
+    linear-gradient(rgba(0,0,0,.86),rgba(0,0,0,.9)),
+    url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=1500') center/cover;
+}
+
+.join h2 {
+  font-size: 36px;
+  margin-bottom: 18px;
+}
+
+.join h2 span { color: var(--gold); }
+
+.join p {
+  color: #ccc;
+  margin-bottom: 30px;
+}
+
+/* CONTACT */
+
+.contact {
+  background: #111612;
+  text-align: center;
+}
+
+.contact p {
+  color: #bbb;
+  margin: 12px;
+}
+
+footer {
+  padding: 30px 8%;
+  text-align: center;
+  background: #080a08;
+  border-top: 1px solid #292e29;
+}
+
+footer h3 { color: var(--gold); }
+
+footer p {
+  color: #999;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+@media(max-width:850px) {
+  nav {
+    display: none;
+    position: absolute;
+    top: 85px;
+    right: 0;
+    width: 100%;
+    background: #111612;
+    flex-direction: column;
+    padding: 25px;
+    gap: 20px;
+  }
+
+  nav.active { display: flex; }
+
+  .menu-btn { display: block; }
+
+  .about { grid-template-columns: 1fr; }
+
+  .cards { grid-template-columns: 1fr; }
+
+  .values { grid-template-columns: 1fr; }
+
+  .hero { min-height: 570px; }
+
+  .stats { padding: 25px 3%; }
+
+  .stat h2 { font-size: 25px; }
+
+  section { padding: 65px 6%; }
+}
+
+</style>
 </head>
+
 <body>
 
-    <div class="container">
-        <h1>Welcome to My Website!</h1>
-        <p>This is my first website built with AI.</p>
-        <button onclick="alert('Hello! Welcome!')">
-            Click Me
-        </button>
+<header>
+  <a href="#" class="logo">
+    MA ACADEMY
+    <span>FOOTBALL DEVELOPMENT</span>
+  </a>
+
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+  <nav id="nav">
+    <a href="#home">الرئيسية</a>
+    <a href="#about">الأكاديمية</a>
+    <a href="#programs">التدريبات</a>
+    <a href="#values">قيمنا</a>
+    <a href="#contact">اتصل بنا</a>
+    <a href="#join" class="join-btn">انضم إلينا</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+
+<div class="hero" id="home">
+  <div class="hero-content">
+    <div class="tag">WELCOME TO MA FOOTBALL ACADEMY</div>
+
+    <h1>
+      نصنع المواهب<br>
+      ونبني <span>الأبطال</span>
+    </h1>
+
+    <p>
+      مرحباً بكم في أكاديمية محمد أمين لكرة القدم.
+      مكان يجتمع فيه الشغف والانضباط والعمل
+      من أجل تطوير المواهب وصناعة مستقبل كروي أفضل.
+    </p>
+
+    <div class="buttons">
+      <a href="#join" class="btn btn-primary">سجل الآن</a>
+      <a href="#about" class="btn">اكتشف الأكاديمية</a>
     </div>
+  </div>
+</div>
+
+<!-- STATS -->
+
+<div class="stats">
+  <div class="stat">
+    <h2>MA</h2>
+    <p>هوية الأكاديمية</p>
+  </div>
+
+  <div class="stat">
+    <h2>100%</h2>
+    <p>الشغف والتطوير</p>
+  </div>
+
+  <div class="stat">
+    <h2>2026</h2>
+    <p>بداية الطموح</p>
+  </div>
+</div>
+
+<!-- ABOUT -->
+
+<section id="about">
+  <div class="about">
+    <div class="about-img">
+      <img
+        src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=900"
+        alt="ملعب كرة القدم">
+    </div>
+
+    <div class="about-text">
+      <div class="tag">ABOUT OUR ACADEMY</div>
+
+      <h2>أكثر من مجرد <span>كرة قدم</span></h2>
+
+      <p>
+        Mohamed Amine Football Academy مشروع رياضي
+        يهدف إلى اكتشاف المواهب الكروية وتطوير مهارات
+        اللاعبين داخل وخارج الملعب.
+
+        <br><br>
+
+        نؤمن بأن النجاح يبدأ بالانضباط والعمل الجماعي
+        والالتزام بالتدريب والتعلم المستمر.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+
+<section class="programs" id="programs">
+  <div class="section-title">
+    <small>OUR PROGRAMS</small>
+    <h2>برامجنا التدريبية</h2>
+    <p>برامج لتطوير المهارات والقدرات الكروية</p>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="card-icon">⚽</div>
+      <h3>تطوير اللاعبين</h3>
+      <p>
+        تطوير المهارات الفردية والتحكم بالكرة
+        والتمرير والتسديد والفهم التكتيكي.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🧤</div>
+      <h3>تدريب حراس المرمى</h3>
+      <p>
+        برامج خاصة لتحسين التركيز ورد الفعل
+        والتمركز والتعامل مع الكرات.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🏆</div>
+      <h3>التطوير التكتيكي</h3>
+      <p>
+        فهم خطط اللعب والعمل الجماعي
+        واتخاذ القرارات داخل الملعب.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- VALUES -->
+
+<section id="values">
+  <div class="section-title">
+    <small>OUR VALUES</small>
+    <h2>المبادئ التي نؤمن بها</h2>
+  </div>
+
+  <div class="values">
+
+    <div class="value">
+      <div class="card-icon">🎯</div>
+      <h3>الانضباط</h3>
+      <p>الالتزام والعمل المستمر لتحقيق الأهداف.</p>
+    </div>
+
+    <div class="value">
+      <div class="card-icon">🤝</div>
+      <h3>روح الفريق</h3>
+      <p>التعاون والاحترام والعمل الجماعي.</p>
+    </div>
+
+    <div class="value">
+      <div class="card-icon">🌟</div>
+      <h3>الطموح</h3>
+      <p>تطوير المواهب والسعي نحو الأفضل.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- JOIN -->
+
+<section class="join" id="join">
+  <div class="tag">YOUR FUTURE STARTS HERE</div>
+
+  <h2>هل أنت مستعد لتحقيق <span>حلمك؟</span></h2>
+
+  <p>
+    اكتشف موهبتك وابدأ رحلتك في عالم كرة القدم.
+  </p>
+
+  <a href="#contact" class="btn btn-primary">
+    تواصل معنا
+  </a>
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+  <div class="section-title">
+    <small>CONTACT US</small>
+    <h2>تواصل مع الأكاديمية</h2>
+  </div>
+
+  <p>📍 المدينة: مراكش، المغرب</p>
+  <p>⚽ Mohamed Amine Football Academy</p>
+  <p>📩 التسجيل والاستفسار: تواصل معنا لإضافة معلومات الاتصال</p>
+</section>
+
+<footer>
+  <h3>MOHAMED AMINE FOOTBALL ACADEMY</h3>
+  <p>© 2026 All Rights Reserved.</p>
+  <p>Built for the love of football ⚽</p>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById("nav").classList.toggle("active");
+}
+</script>
 
 </body>
 </html>
